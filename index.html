@@ -31,7 +31,6 @@
         appId: "1:69556042133:web:6c1f239689fad423"
     };
     firebase.initializeApp(config);
-    alert("TEST");
 </script>
     <!-- update the version number as needed -->
 
@@ -96,9 +95,8 @@
                 // Combine all the uri elements.
                 let url =
                   redirect_uri + "?state=" + state + "&code=" + authCode;
-                   alert("even more updated");
                 // Redirect
-//                 window.location.href = url;
+                window.location.href = url;
               } else {
                 // User is signed out, so we show the Firebase UI.
                 // FirebaseUI config.
