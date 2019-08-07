@@ -69,8 +69,9 @@
           document.getElementById(
             "load"
           ).innerHTML = `Firebase SDK loaded with ${features.join(", ")}`;
-          firebase.auth().Auth.Persistence.NONE
+          
           firebase.auth().onAuthStateChanged(
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
             function(user) {
               if (user) {
                 // User is signed in.
@@ -119,6 +120,7 @@
                   credentialHelper: firebaseui.auth.CredentialHelper.NONE
                 };
                 // Initialize the FirebaseUI Widget using Firebase.
+                
                 var ui = new firebaseui.auth.AuthUI(firebase.auth());
                 // The start method will wait until the DOM is loaded.
                 ui.start("#firebaseui-auth-container", uiConfig);
