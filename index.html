@@ -41,12 +41,12 @@
 
 <body>
     <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Login</h1>
+      <h2>Aura Air</h2>
+      <h1>Login</h1>
       <div id="info"></div>
     </div>
     <div id="firebaseui-auth-container"></div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <p id="load">Loading&hellip;</p>
 
     <script>
       // see https://stackoverflow.com/a/2117523/5168962
@@ -65,9 +65,7 @@
           let features = ["auth"].filter(
             feature => typeof app[feature] === "function"
           );
-          document.getElementById(
-            "load"
-          ).innerHTML = `Firebase SDK loaded with ${features.join(", ")}`;
+          
           firebase.auth().onAuthStateChanged(
             async function(user) {
               if (user) {
