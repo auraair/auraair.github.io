@@ -1,4 +1,3 @@
-
 <!-- The surrounding HTML is left untouched by FirebaseUI.
      Your app may use that space for branding, controls and other customizations.-->
 <!DOCTYPE html>
@@ -70,7 +69,6 @@
           document.getElementById(
             "load"
           ).innerHTML = `Firebase SDK loaded with ${features.join(", ")}`;
-          
           firebase.auth().onAuthStateChanged(
             function(user) {
               if (user) {
@@ -120,7 +118,6 @@
                   credentialHelper: firebaseui.auth.CredentialHelper.NONE
                 };
                 // Initialize the FirebaseUI Widget using Firebase.
-                
                 var ui = new firebaseui.auth.AuthUI(firebase.auth());
                 // The start method will wait until the DOM is loaded.
                 ui.start("#firebaseui-auth-container", uiConfig);
