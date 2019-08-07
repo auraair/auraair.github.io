@@ -98,7 +98,7 @@
                 console.log("TEST")
                    alert("I am an alert box!");
                 // Redirect
-                //window.location.href = url;
+                window.location.href = url;
               } else {
                 // User is signed out, so we show the Firebase UI.
                 // FirebaseUI config.
@@ -109,12 +109,12 @@
                   ],
                   callbacks: {
                     // Turn of FirebaseUI redirect.
-//                     signInSuccessWithAuthResult: function(
-//                       authResult,
-//                       redirectUrl
-//                     ) {
-//                       return false;
-//                     }
+                    signInSuccessWithAuthResult: function(
+                      authResult,
+                      redirectUrl
+                    ) {
+                      return false;
+                    }
                   },
                   credentialHelper: firebaseui.auth.CredentialHelper.NONE
                 };
