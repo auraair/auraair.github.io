@@ -95,8 +95,9 @@
                 // Combine all the uri elements.
                 let url =
                   redirect_uri + "?state=" + state + "&code=" + authCode;
+                console.log("TEST")
                 // Redirect
-                window.location.href = url;
+                //window.location.href = url;
               } else {
                 // User is signed out, so we show the Firebase UI.
                 // FirebaseUI config.
