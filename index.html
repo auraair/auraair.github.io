@@ -59,7 +59,7 @@
           ).toString(16)
         );
       }
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", async function() {
         try {
           let app = firebase.app();
           let db = firebase.firestore();
@@ -77,7 +77,7 @@
                 // Generate auth code which we will later use to get our auth_token.
                 let authCode = uuidv4();
                 // Save the code in our database.
-                db.collection(`auth_codes`)
+                await db.collection(`auth_codes`)
                   .doc(uid)
                   .set(
                     {
@@ -96,8 +96,7 @@
                 // Combine all the uri elements.
                 let url =
                   redirect_uri + "?state=" + state + "&code=" + authCode;
-                console.log("TEST")
-                   alert("I am an alert box!");
+                   alert("updated site");
                 // Redirect
 //                 window.location.href = url;
               } else {
