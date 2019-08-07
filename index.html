@@ -71,7 +71,7 @@
           ).innerHTML = `Firebase SDK loaded with ${features.join(", ")}`;
           
           firebase.auth().onAuthStateChanged(
-            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
+            firebase.auth().signOut();
             function(user) {
               if (user) {
                 // User is signed in.
