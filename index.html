@@ -69,6 +69,7 @@
           document.getElementById(
             "load"
           ).innerHTML = `Firebase SDK loaded with ${features.join(", ")}`;
+          firebase.auth().Auth.Persistence.NONE
           firebase.auth().onAuthStateChanged(
             function(user) {
               if (user) {
