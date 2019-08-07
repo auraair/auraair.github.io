@@ -31,7 +31,6 @@
         appId: "1:69556042133:web:6c1f239689fad423"
     };
     firebase.initializeApp(config);
-    firebase.auth().signOut();
 </script>
     <!-- update the version number as needed -->
 
@@ -86,18 +85,32 @@
                       created: firebase.firestore.FieldValue.serverTimestamp()
                     },
                     { merge: true }
-                  );
+                  ).then(function() {
+                         console.log("Success");
+                    })
+                    .catch(function(error) {
+                         // Handle Errors here.
+                         var errorCode = error.code;
+                         var errorMessage = error.message;
+                         console.log(errorCode, errorMessage);
+                    });
                 // Send token back to client
                 const urlParams = new URLSearchParams(window.location.search);
                 // State sent by Alexa which we have to return.
                 const state = urlParams.get("state");
                 // Redirect uri sent by Alexa.
-                const redirect_uri = urlParams.get("redirect_uri");
-                // Combine all the uri elements.
-                let url =
-                  redirect_uri + "?state=" + state + "&code=" + authCode;
-                // Redirect
-                window.location.href = url;
+                   
+                   console.log(uid);
+                   console.log(authCode);
+                   
+//                 const redirect_uri = urlParams.get("redirect_uri");
+//                 // Combine all the uri elements.
+//                 let url =
+//                   redirect_uri + "?state=" + state + "&code=" + authCode;
+//                 // Redirect
+//                 window.location.href = url;
+                   
+                   
               } else {
                 // User is signed out, so we show the Firebase UI.
                 // FirebaseUI config.
